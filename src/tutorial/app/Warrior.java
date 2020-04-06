@@ -1,4 +1,4 @@
-package app;
+package tutorial.app;
 
 //Every real world object has attributes
 //(height, weight) and capabilities

@@ -1,4 +1,4 @@
-package app;
+package tutorial.app;
 //Interfaces are empty classes
 
 //They define the methods you must use, but

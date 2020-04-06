@@ -1,4 +1,4 @@
-package app;
+package tutorial.app;
 
 // Right click project New -> Package
 // Right click Package -> New Class

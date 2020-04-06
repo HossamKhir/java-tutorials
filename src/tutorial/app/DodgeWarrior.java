@@ -1,4 +1,4 @@
-package app;
+package tutorial.app;
 
 import java.util.Random;
 

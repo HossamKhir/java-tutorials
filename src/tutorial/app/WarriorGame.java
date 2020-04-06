@@ -1,4 +1,4 @@
-package app;
+package tutorial.app;
 
 public class WarriorGame {
 

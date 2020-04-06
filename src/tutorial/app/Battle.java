@@ -1,4 +1,4 @@
-package app;
+package tutorial.app;
 
 //Battle is a utility class so
 //it contains only static methods
