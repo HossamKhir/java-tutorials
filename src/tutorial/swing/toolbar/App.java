@@ -20,7 +20,7 @@ public class App {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				new MainFrame("Custom Component");
+				new MainFrame("Toolbar");
 			}
 		});
 	}
