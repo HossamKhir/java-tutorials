@@ -1,7 +1,7 @@
 /**
  * 
  */
-package tutorial.swing;
+package tutorial.swing.jframe;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -10,7 +10,7 @@ import javax.swing.SwingUtilities;
  * @author hossam
  *
  */
-public class JFrameTutorial {
+public class App {
 	public static final JFrame frame = new JFrame("Hello World");
 
 	public static void main(String[] args) {
