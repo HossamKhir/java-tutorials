@@ -1,4 +1,4 @@
-package tutorial.swing.actionlistener;
+package tutorial.swing.action.listener;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

@@ -3,7 +3,7 @@
  */
 package tutorial.swing.toolbar;
 
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 /**
  * @author hossam

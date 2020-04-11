@@ -1,17 +1,13 @@
 /**
  * 
  */
-package tutorial.swing.customcomponent;
+package tutorial.swing.components.communication;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
- * @author hossa
+ * @author hossam
  *
  */
 public class MainFrame extends JFrame {
@@ -21,7 +17,7 @@ public class MainFrame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JButton btn;
+	private Toolbar tlb;
 	private TextPanel txp;
 	//_______________________________________________Constructors
 	public MainFrame() {
@@ -35,20 +31,12 @@ public class MainFrame extends JFrame {
 
 		this.setLayout(new BorderLayout());
 		
-		btn = new JButton("Click me!");
+		tlb = new Toolbar();
 		txp = new TextPanel();
 		
-		btn.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				txp.appendText(arg0.toString());
-			}
-			
-		});
+                tlb.setTextPanel(txp);
 		
-		this.add(btn, BorderLayout.SOUTH);
+		this.add(tlb, BorderLayout.NORTH);
 		this.add(txp, BorderLayout.CENTER);
 		
 		this.setSize(512, 512);

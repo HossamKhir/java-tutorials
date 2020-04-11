@@ -1,7 +1,7 @@
 /**
  * 
  */
-package tutorial.swing.customcomponent;
+package tutorial.swing.custom.component;
 
 import javax.swing.SwingUtilities;
 
