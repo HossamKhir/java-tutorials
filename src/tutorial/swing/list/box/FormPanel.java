@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
  */
 public class FormPanel extends JPanel {
 
-    //_________________________________Fields
+    // <editor-fold desc="fields">
     private JLabel lblName;
     private JLabel lblOccupation;
     private JTextField txfName;
@@ -26,32 +26,8 @@ public class FormPanel extends JPanel {
 
     private FormEventListener feListener;
 
-    private class ExtendedGridBagConstraints extends GridBagConstraints {
-
-        public ExtendedGridBagConstraints cell(int x, int y) {
-            this.gridx = x;
-            this.gridy = y;
-            return this;
-        }
-
-        public ExtendedGridBagConstraints weigh(float x, float y) {
-            this.weightx = x;
-            this.weighty = y;
-            return this;
-        }
-
-        public ExtendedGridBagConstraints stick(int anch) {
-            this.anchor = anch;
-            return this;
-        }
-
-        public ExtendedGridBagConstraints filler(int filler) {
-            this.fill = filler;
-            return this;
-        }
-    }
-
-    //_________________________________Constructors
+    // </editor-fold>
+    // <editor-fold desc="constructors">
     public FormPanel() {
         /* 
         on adding components w/ layout managers, the layout manager uses
@@ -73,9 +49,9 @@ public class FormPanel extends JPanel {
         lstAge = new JList();
 
         DefaultListModel ageModel = new DefaultListModel();
-        ageModel.addElement("Under 18!");
-        ageModel.addElement("18 to 65!");
-        ageModel.addElement("65 or over!");
+        ageModel.addElement(new AgeCategory(0, "Under 18!"));
+        ageModel.addElement(new AgeCategory(1, "18 to 65!"));
+        ageModel.addElement(new AgeCategory(2, "65 or over!"));
 
         lstAge.setPreferredSize(new Dimension(110, 70));
         lstAge.setBorder(BorderFactory.createEtchedBorder());
@@ -88,13 +64,17 @@ public class FormPanel extends JPanel {
             public void actionPerformed(ActionEvent actionEvent) {
                 String strName = txfName.getText();
                 String strOccupation = txfOccupation.getText();
-                String strAgeCategory = (String) lstAge.getSelectedValue();
+//                String strAgeCategory = (String) lstAge.getSelectedValue();
+                AgeCategory ageCat = (AgeCategory) lstAge.getSelectedValue();
+                // values are of AgeCategory class, not String anymore
 
                 // FIXME debug code
-                System.out.println(strAgeCategory);
+                System.out.println(ageCat);
 
                 // create an event to be sent for another component
-                FormEvent fEvent = new FormEvent(this, strName, strOccupation);
+                FormEvent fEvent
+                        = new FormEvent(this, strName, strOccupation,
+                                ageCat.getId());
 
                 if (feListener != null) {
                     feListener.formEventOccurred(fEvent);
@@ -154,6 +134,7 @@ public class FormPanel extends JPanel {
         // </editor-fold>
     }
 
+    // <editor-fold>
     // <editor-fold desc="main" defaultstate="collapsed">
     // </editor-fold>
     // <editor-fold desc="methods" defaultstate="collapsed">
@@ -166,3 +147,72 @@ public class FormPanel extends JPanel {
     }
     // </editor-fold>
 }
+
+// <editor-fold desc="utility classes">
+class AgeCategory {
+
+    // <editor-fold desc="fields">
+    private int id;
+    private String text;
+
+    // </editor-fold>
+    // <editor-fold desc="constructors">
+    public AgeCategory(int id, String strText) {
+        this.id = id;
+        this.text = strText;
+    }
+    // </editor-fold>
+    // <editor-fold desc="methods">
+
+    /* overriding the to string method to send the wanted text */
+    @Override
+    public String toString() {
+        return this.text;
+//        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+    // </editor-fold>
+
+}
+
+class ExtendedGridBagConstraints extends GridBagConstraints {
+
+    public ExtendedGridBagConstraints cell(int x, int y) {
+        this.gridx = x;
+        this.gridy = y;
+        return this;
+    }
+
+    public ExtendedGridBagConstraints weigh(float x, float y) {
+        this.weightx = x;
+        this.weighty = y;
+        return this;
+    }
+
+    public ExtendedGridBagConstraints stick(int anch) {
+        this.anchor = anch;
+        return this;
+    }
+
+    public ExtendedGridBagConstraints filler(int filler) {
+        this.fill = filler;
+        return this;
+    }
+}
+
+// </editor-fold>

@@ -3,7 +3,6 @@
  */
 package tutorial.swing.list.box;
 
-import tutorial.swing.events.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,20 +12,24 @@ import java.awt.*;
  */
 public class MainFrame extends JFrame {
 
-    //_______________________________________________Fields
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+    // <editor-fold desc="fields">
     private Toolbar tlb;
     private TextPanel txp;
     private FormPanel form;
-    //_______________________________________________Constructors
+    // </editor-fold>
+    // <editor-fold desc="consturctors">
 
+    /**
+     *
+     */
     public MainFrame() {
         super();
     }
 
+    /**
+     *
+     * @param strTitle
+     */
     public MainFrame(String strTitle) {
         super(strTitle);
 
@@ -47,13 +50,14 @@ public class MainFrame extends JFrame {
         });
 
         // to handle events from form panel
-        form.setFormListener(new FormEventListener(){
+        form.setFormListener(new FormEventListener() {
             @Override
             public void formEventOccurred(FormEvent event) {
                 String strName = event.getName();
                 String strOccupation = event.getOccupation();
+                int ageCat = event.getAgeCategory();
 
-                txp.appendText(strName + ": " + strOccupation);
+                txp.appendText(strName + ": " + strOccupation + ": " + ageCat);
             }
         });
 
@@ -65,7 +69,9 @@ public class MainFrame extends JFrame {
         this.setVisible(true);
 
     }
-    //_______________________________________________Main
-    //_______________________________________________Methods
-
+    // </editor-fold>
+    // <editor-fold desc="main">
+    // </editor-fold>
+    // <editor-fold desc="methods">
+    // </editor-fold>
 }
