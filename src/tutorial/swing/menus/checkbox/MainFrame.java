@@ -1,10 +1,14 @@
 /**
  *
  */
-package tutorial.swing.checkbox.menu;
+package tutorial.swing.menus.checkbox;
+
+import tutorial.awt.eventlisteners.ActionListenerTutorial;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * @author hossam
@@ -85,29 +89,32 @@ public class MainFrame extends JFrame {
     private JMenuBar createMenuBar() {
         // TODO declare a menu bar
         JMenuBar mnuBar = new JMenuBar();
-        
+
         // TODO declare menus
         JMenu mFile = new JMenu("File");
         JMenu mWindow = new JMenu("Window");
         // TODO declare a sub menu (a menu under a menu)
         JMenu mShow = new JMenu("Show");
-        
+
         // TODO declare menu items
         JMenuItem mniExportData = new JMenuItem("Export Data...");
         JMenuItem mniImportData = new JMenuItem("Import Data...");
         JMenuItem mniExit = new JMenuItem("Exit");
-        JMenuItem mniShowForm = new JMenuItem("Person Form");
-        
+//        JMenuItem mniShowForm = new JMenuItem("Person Form");
+        JCheckBoxMenuItem cbmiShowForm = new JCheckBoxMenuItem("Person Form");
+        cbmiShowForm.setSelected(true);
+        // TODO practice using JRadioButtonMenuItem
+
         // TODO add menu items to menus
         mFile.add(mniExportData);
         mFile.add(mniImportData);
         // TODO add a separator in menu
         mFile.addSeparator();
         mFile.add(mniExit);
-        mShow.add(mniShowForm);
+        mShow.add(cbmiShowForm);
         // TODO add sub menu to menu
         mWindow.add(mShow);
-        
+
         // TODO add menus to menu bar
 //        mnuBar.setLayout(new BoxLayout(mnuBar, BoxLayout.LINE_AXIS));
         mnuBar.add(mFile);
@@ -115,7 +122,17 @@ public class MainFrame extends JFrame {
 //        mnuBar.add(Box.createHorizontalGlue());
 //        mnuBar.add(new JLabel("Testing title"));
 //        mnuBar.add(Box.createHorizontalGlue());
-        
+
+        // TODO add action listeners
+        cbmiShowForm.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem)actionEvent.getSource();
+                form.setVisible(menuItem.isSelected());
+            }
+        });
+
         // return statement
         return mnuBar;
     }

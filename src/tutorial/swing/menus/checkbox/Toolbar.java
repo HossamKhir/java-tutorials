@@ -1,7 +1,7 @@
 /**
  *
  */
-package tutorial.swing.checkbox.menu;
+package tutorial.swing.menus.checkbox;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package tutorial.swing.checkbox.menu;
+package tutorial.swing.menus.checkbox;
 
 import java.util.EventObject;
 
