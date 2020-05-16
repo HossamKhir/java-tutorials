@@ -1,4 +1,4 @@
-package tutorial.swing.check.box;
+package tutorial.swing.checkbox;
 
 import java.util.EventObject;
 

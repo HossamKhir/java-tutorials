@@ -1,7 +1,7 @@
 /**
  *
  */
-package tutorial.swing.check.box;
+package tutorial.swing.checkbox.menu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
  */
 public class Toolbar extends JPanel implements ActionListener {
 
-    //_______________________________Fields
+    // <editor-fold desc="fields">
     /**
      *
      */
@@ -22,11 +22,12 @@ public class Toolbar extends JPanel implements ActionListener {
     private JButton btnHello;
     private JButton btnGoodbye;
     private StringListener textListener;
-    //_______________________________Constructors
+    // </editor-fold>
+    // <editor-fold desc="constructors">
 
     public Toolbar() {
         super();
-        
+
         this.setBorder(BorderFactory.createEtchedBorder());
 
         this.btnHello = new JButton("Hello!");
@@ -44,9 +45,10 @@ public class Toolbar extends JPanel implements ActionListener {
         this.add(btnHello);
         this.add(btnGoodbye);
     }
-    //_______________________________Main
-    //_______________________________Methods
-
+    // </editor-fold>
+    // <editor-fold desc="main">
+    // </editor-fold>
+    // <editor-fold desc="methods">
     public void setStringListener(StringListener listener) {
         this.textListener = listener;
     }
@@ -69,4 +71,5 @@ public class Toolbar extends JPanel implements ActionListener {
         }
     }
 
+    // </editor-fold>
 }

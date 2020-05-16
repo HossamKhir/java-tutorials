@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tutorial.swing.check.box;
+package tutorial.swing.checkbox.menu;
 
 /**
  *
  * @author hossam
  */
 public interface StringListener {
+
     public void textEmitted(String text);
-    
+
 }

@@ -1,7 +1,7 @@
 /**
  *
  */
-package tutorial.swing.check.box;
+package tutorial.swing.checkbox.menu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,6 +41,8 @@ public class MainFrame extends JFrame {
         txp = new TextPanel();
         form = new FormPanel();
 
+        this.setJMenuBar(createMenuBar());
+
         tlb.setStringListener(new StringListener() {
             @Override
             public void textEmitted(String text) {
@@ -59,6 +61,9 @@ public class MainFrame extends JFrame {
                 String empCat = event.getEmpCat();
 
                 txp.appendText(strName + ": " + strOccupation + ": " + ageCat + ": " + empCat);
+
+                // FIXME debug code
+                System.out.println(event.getGender());
             }
         });
 
@@ -66,13 +71,53 @@ public class MainFrame extends JFrame {
         this.add(txp, BorderLayout.CENTER);
         this.add(form, BorderLayout.WEST);
 
+        // FIXME debug code
+//        this.setUndecorated(true);
         this.setSize(1024, 512);
         this.setVisible(true);
 
     }
+
     // </editor-fold>
     // <editor-fold desc="main">
     // </editor-fold>
     // <editor-fold desc="methods">
+    private JMenuBar createMenuBar() {
+        // TODO declare a menu bar
+        JMenuBar mnuBar = new JMenuBar();
+        
+        // TODO declare menus
+        JMenu mFile = new JMenu("File");
+        JMenu mWindow = new JMenu("Window");
+        // TODO declare a sub menu (a menu under a menu)
+        JMenu mShow = new JMenu("Show");
+        
+        // TODO declare menu items
+        JMenuItem mniExportData = new JMenuItem("Export Data...");
+        JMenuItem mniImportData = new JMenuItem("Import Data...");
+        JMenuItem mniExit = new JMenuItem("Exit");
+        JMenuItem mniShowForm = new JMenuItem("Person Form");
+        
+        // TODO add menu items to menus
+        mFile.add(mniExportData);
+        mFile.add(mniImportData);
+        // TODO add a separator in menu
+        mFile.addSeparator();
+        mFile.add(mniExit);
+        mShow.add(mniShowForm);
+        // TODO add sub menu to menu
+        mWindow.add(mShow);
+        
+        // TODO add menus to menu bar
+//        mnuBar.setLayout(new BoxLayout(mnuBar, BoxLayout.LINE_AXIS));
+        mnuBar.add(mFile);
+        mnuBar.add(mWindow);
+//        mnuBar.add(Box.createHorizontalGlue());
+//        mnuBar.add(new JLabel("Testing title"));
+//        mnuBar.add(Box.createHorizontalGlue());
+        
+        // return statement
+        return mnuBar;
+    }
     // </editor-fold>
 }
